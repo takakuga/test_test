@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
   
   def index
-    # @prototypes = Prototype.all
+    @prototypes = Prototype.all
   end
 
   def new
@@ -9,7 +9,7 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = Prototype.create(prototype_params)
+    @prototype = Prototype.new(prototype_params)
     if @prototype.save
       redirect_to root_path
     else
