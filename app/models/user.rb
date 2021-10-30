@@ -6,8 +6,10 @@ class User < ApplicationRecord
          has_many :prototypes
          has_many :comments
 
-         validates :name, presence: true
-         validates :profile, presence: true
-         validates :occupation, presence: true
-         validates :position, presence: true
+  with_options presence: true do
+    validates :name
+    validates :profile
+    validates :occupation
+    validates :position
+  end
 end
