@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
 
   def create
     Comment.create(comment_params)
+    if comment.save
+      redirect_to root_path
+    else
+    render :show
   end
 
   private
