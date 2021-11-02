@@ -51,6 +51,9 @@
             <ul>
               <%= comment.content %>
               <%= link_to comment.user.name, user_path(comment.user), class: :comment_user %>
+              <% if current_user == comment.user %>
+                <%= link_to '削除', prototype_comment_path(comment.prototype.id, comment.id), method: :delete %>
+                 <% end %>
             </li>
             <% end %>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
